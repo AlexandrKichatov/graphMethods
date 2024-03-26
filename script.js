@@ -24,14 +24,14 @@ class Graph {
       }
     }
     //Shortest road from vertex to vertex.
-    bfs2(startVertex) {
+    /*bfs2(startVertex) {
         let list = this.vertices; 
         let queue = [startVertex];
         let visited = { [startVertex]: 1 }; 
         
-        // кратчайшее расстояние от стартовой вершины
+        
         let distance = { [startVertex]: 0 }; 
-        // предыдущая вершина в цепочке
+        
         let previous = { [startVertex]: null };
     
         function handleVertex(vertex) {
@@ -42,43 +42,25 @@ class Graph {
             if (neighboursList == undefined && !visited[neighbour]) {
               visited[neighbour] = 1;
               queue.push(neighbour);
-              // сохраняем предыдущую вершину
+              
               previous[neighbour] = vertex;
-              // сохраняем расстояние 
+              
               distance[neighbour] = distance[vertex] + 1;
             }
             
           });
         }
     
-        // перебираем вершины из очереди, пока она не опустеет
+        
         while(queue.length) {
           let activeVertex = queue.shift();
           handleVertex(activeVertex);
         }
         
         return { distance, previous }
-    }
+    }*/
 
-    findShortestPath(startVertex, finishVertex) {
-        let result = this.bfs2(startVertex);
-    
-        if (!(finishVertex in result.previous)) 
-        throw new Error(`There is no path from ${startVertex} to vertex ${finishVertex}`);
-            
-        let path = [];
-        
-        let currentVertex = finishVertex;
-        
-        while(currentVertex !== startVertex) {
-          path.unshift(currentVertex);
-          currentVertex = result.previous[currentVertex];
-        }
-        
-        path.unshift(startVertex);
-        
-        return path;
-    }
+
     
     
   
